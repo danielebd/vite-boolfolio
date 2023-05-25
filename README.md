@@ -1,9 +1,4 @@
-# Vue Template
-
-Template di partenza per progetti Vue con option API
-
-Per installare il progetto
-
-- npm install
-- npm run dev
-
+- creazione components
+- chiamata del db creato in laravel tramite url con axios
+- creazione props per la trasmissione dell'oggetto coi dati ai figli
+- ciclare l'oggetto per la rappresentazione dei dati
