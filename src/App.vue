@@ -25,7 +25,7 @@ export default {
       //concatenazione stringhe
       axios.get(this.apiUrlBase + this.apiUrls.projects)
         .then((response) => {
-          this.projects = response.data.results;
+          this.projects = response.data.results.data;
         })
         .catch((error) => {
           console.log('error');
