@@ -1,29 +1,35 @@
 <script >
 import axios from 'axios';
-import HelloApp from './components/HelloApp.vue';
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue'
+import AppFooter from './components/AppFooter.vue'
 export default {
   name: 'App',
+  components: {
+    AppHeader,
+    AppMain,
+    AppFooter
+  },
   data() {
     return {
       apiUrlBase: 'http://127.0.0.1:8000/api',
-      apiUrl: {
+      apiUrls: {
         projects: '/projects'
       },
       projects: []
     }
   },
-  components: {
-    HelloApp
-  },
+
   methods: {
     getProjects() {
       //concatenazione stringhe
-      axios.get(this.apiUrlBase + this.apiUrl.projects).then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log('error');
-      })
+      axios.get(this.apiUrlBase + this.apiUrls.projects)
+        .then((response) => {
+          this.projects = response.data.results;
+        })
+        .catch((error) => {
+          console.log('error');
+        })
     }
   },
   created() {
@@ -33,7 +39,9 @@ export default {
 </script>
 
 <template>
-  <HelloApp />
+  <AppHeader />
+  <AppMain />
+  <AppFooter />
 </template>
 
 <style lang="scss" scoped></style>
