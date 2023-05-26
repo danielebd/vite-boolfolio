@@ -4,3 +4,8 @@
 - ciclare l'oggetto per la rappresentazione dei dati
 - modifica del popolamento oggetto project per inserire solo di dati interessati dopo la modifica in laravel per includere le tabelle relazionate
 - installazione vue router
+- vue router
+- creazione rotte (router.js)
+- creazione pagine (vuote)
+- creazione rotta parametrica e pagina di dettaglio del progetto
+- navigazione tra le pagine

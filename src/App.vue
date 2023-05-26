@@ -40,7 +40,8 @@ export default {
 
 <template>
   <AppHeader />
-  <AppMain :data="projects"/>
+  <!-- <AppMain :data="projects"/> -->
+  <router-view></router-view>
   <AppFooter />
 </template>
 
