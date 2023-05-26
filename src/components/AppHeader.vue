@@ -8,10 +8,10 @@ export default {
 <template>
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-            <ul class="list-unstyled m-0 p-0 gap-2">
+            <ul class="list-unstyled m-0 p-0 gap-2 d-flex">
                 <li>
                     <router-link :to="{name: 'home'}" class="nav-link">
-                        Home
+                        Projects
                     </router-link>
                 </li>
                 <li>
