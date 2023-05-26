@@ -3,3 +3,4 @@
 - creazione props per la trasmissione dell'oggetto coi dati ai figli
 - ciclare l'oggetto per la rappresentazione dei dati
 - modifica del popolamento oggetto project per inserire solo di dati interessati dopo la modifica in laravel per includere le tabelle relazionate
+- installazione vue router
