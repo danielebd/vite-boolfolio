@@ -41,7 +41,7 @@ export default {
                             <p class="card-text">Description: <br>{{ project.description }}</p>
                             <p class="card-text">Type: {{ project.type.name }}</p>
                             <a href="#">
-                                <router-link :to="{ name: 'project', params: { slug: project.slug } }" class="nav-link">
+                                <router-link :to="{ name: 'project', params: { id: project.id, slug: project.slug } }" class="nav-link">
                                     Details
                                 </router-link>
                             </a>
