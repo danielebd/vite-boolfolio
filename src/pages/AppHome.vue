@@ -40,6 +40,11 @@ export default {
                             <h6 class="card-subtitle mb-2 text-body-secondary">Start Date: {{ project.start_date }}</h6>
                             <p class="card-text">Description: <br>{{ project.description }}</p>
                             <p class="card-text">Type: {{ project.type.name }}</p>
+                            <a href="#">
+                                <router-link :to="{ name: 'project', params: { slug: project.slug } }" class="nav-link">
+                                    Details
+                                </router-link>
+                            </a>
                         </div>
                     </div>
                 </div>
