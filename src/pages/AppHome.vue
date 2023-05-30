@@ -8,7 +8,9 @@ export default {
             apiUrls: {
                 projects: '/projects'
             },
-            projects: []
+            projects: [],
+            projectPerPage: 6,
+
         }
     },
     methods: {
@@ -16,11 +18,17 @@ export default {
             //concatenazione stringhe
             axios.get(this.apiUrlBase + this.apiUrls.projects)
                 .then((response) => {
-                    this.projects = response.data.results.data;
+                    this.projects = response.data.results;
+                    console.log(response.data.results);
                 })
                 .catch((error) => {
                     console.log('error');
                 })
+        }
+    },
+    computed: {
+        showProject() {
+            return this.projects.filter((element, index) => index < this.projectPerPage);
         }
     },
     created() {
@@ -33,20 +41,24 @@ export default {
     <div>
         <div class="container">
             <div class="row my-3 gy-4">
-                <div class="col col-md-4" v-for="project in this.projects">
+                <div class="col col-md-4" v-for="project in showProject">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">{{ project.title }}</h5>
                             <h6 class="card-subtitle mb-2 text-body-secondary">Start Date: {{ project.start_date }}</h6>
                             <p class="card-text">Description: <br>{{ project.description }}</p>
-                            <p class="card-text">Type: {{ project.type.name }}</p>
+                            <p class="card-text">Type: {{ project.type ? project.type.name : 'N/A' }}</p>
                             <a href="#">
-                                <router-link :to="{ name: 'project', params: { id: project.id, slug: project.slug } }" class="nav-link">
+                                <router-link :to="{ name: 'project', params: { id: project.id, slug: project.slug } }"
+                                    class="nav-link">
                                     Details
                                 </router-link>
                             </a>
                         </div>
                     </div>
+                </div>
+                <div class="text-center my-5">
+                    <button class="btn btn-primary" @click.prevent="$event => projectPerPage += 6">Carica altri risultati</button>
                 </div>
 
             </div>
